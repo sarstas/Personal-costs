@@ -13,6 +13,16 @@ The application logic is very simple. The user enters in the form the date, the 
 the amount of money. The data goes to the dashboard, the list is split using pagination
 The application also has a special circular diagram for visualizing costs, it takes data from dashboard
 
+What is it needed for? 
+- for maintenance and further reporting of spent funds
+How will it be useful? 
+- It is convenient to control expenses in the application, plan large purchases
+and expenses for the coming months
+How does it work? 
+- the user enters the date of expenses through the form, from the drop-down list selects the category for which the
+funds were spent, and the amount spent. As a result, the entry is added to the list and the pie chart is rendered
+in the same way.
+
 ## Installation and launch
 ```sh
 - To install, you need to clone the repository on your computer.
