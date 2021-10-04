@@ -3,6 +3,16 @@
 
 ## _Student - Saraikin Stanislav_
 
+## What is the app?
+These are applications for personal / home finance. In this application, the user can enter their daily expenses by choosing
+the categories where the finances were spent. It is convenient to control expenses in the application, plan large purchases
+and expenses for the coming months. All expenses are categorized to make it easier to record and calculate. For clarity, the
+application plots graphs: it shows in which area of life you spend most of your money.
+
+The application logic is very simple. The user enters in the form the date, the category for which the money was spent an
+the amount of money. The data goes to the dashboard, the list is split using pagination
+The application also has a special circular diagram for visualizing costs, it takes data from dashboard
+
 ## Installation and launch
 ```sh
 - To install, you need to clone the repository on your computer.
@@ -65,12 +75,3 @@ npm run lint
 
 
 
-## What is the app?
-These are applications for personal / home finance. In this application, the user can enter their daily expenses by choosing
-the categories where the finances were spent. It is convenient to control expenses in the application, plan large purchases 
-and expenses for the coming months. All expenses are categorized to make it easier to record and calculate. For clarity, the
-application plots graphs: it shows in which area of life you spend most of your money.
-
-The application logic is very simple. The user enters in the form the date, the category for which the money was spent an
-the amount of money. The data goes to the dashboard, the list is split using pagination
-The application also has a special circular diagram for visualizing costs, it takes data from dashboard
