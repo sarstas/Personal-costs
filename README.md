@@ -78,7 +78,7 @@ npm run lint
 - Sass
 - Vue
 - Vuex
-- Router
+- Vue-router
 - Vue and Vuex
 - node.js
 - Express
