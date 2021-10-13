@@ -1,20 +1,17 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="My personal costs" />
-    <div class="wrapper">
-
-
-    </div>
-  </div>
+  <b-container id="app">
+    <header class="header"></header>
+    <main class="main"></main>
+    <footer class="footer"></footer>
+  </b-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+
   }
 }
 </script>
@@ -28,10 +25,7 @@ export default {
   color: #2c3e50
   margin-top: 60px
 
-.wrapper
-  display: flex
-  justify-content: space-around
-  margin-top: 100px
+
 
 
 
