@@ -20,7 +20,7 @@ export default {
       datasets: [
         {
           data: [30, 30, 10, 20, 40],
-          backgroundColor: ["Red", "Purple", "Green", "Yellow", "Blue"]
+          backgroundColor: ["#F06292", "#DCE775", "#448AFF", "#FFF176", "#4DB6AC"]
         }
       ],
       option: {
