@@ -1,3 +1,4 @@
+<!--TODO надо добавить min-width таблице, на маленьком дисплее ею невозможно пользоваться-->
 <template>
   <v-container>
     <v-row>
@@ -13,6 +14,7 @@
       <v-col :cols="4" class="text-center">{{ pay.category }}</v-col>
       <v-col :cols="2" class="text-center">{{ pay.value }}</v-col>
       <v-col :cols="2" class="text-center">
+        <!--TODO ошибки в консоли при нажатии на кнопки-->
         <v-icon
             small
             class="mr-2"
@@ -32,6 +34,7 @@
   </v-container>
 </template>
 
+<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
 
 import { mapMutations } from "vuex"

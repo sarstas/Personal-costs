@@ -1,4 +1,6 @@
+<!--TODO при маленьком экране график слезает за футер и его не видно. Нужно рефакторить основной темплейт, чтобы такого не было-->
 <template>
+<!--TODO пустой стиль-->
   <v-container class="" >
     <chartjs-doughnut
         class="mt-16"
@@ -9,6 +11,7 @@
   </v-container>
 </template>
 
+<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
 
 export default {
@@ -16,11 +19,11 @@ export default {
   components: {  },
   data() {
     return {
-      labels: ['Food', 'Education', 'Transport', 'Clothing', 'Housing'],
+      labels: ['Food', 'Education', 'Transport', 'Clothing', 'Housing'], // TODO во эти данные хоть и для заглушки, но их лучше тоже выносить отдельно
       datasets: [
         {
           data: [30, 30, 10, 20, 40],
-          backgroundColor: ["#F06292", "#DCE775", "#448AFF", "#FFF176", "#4DB6AC"]
+          backgroundColor: ["#F06292", "#DCE775", "#448AFF", "#FFF176", "#4DB6AC"] // TODO вынести отдельно в какую-нибудь enum-ку
         }
       ],
       option: {

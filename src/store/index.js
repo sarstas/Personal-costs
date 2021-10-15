@@ -28,12 +28,13 @@ Vue.use(Vuex)
              const paymentList = [...state.paymentList]
              const i = paymentList.map(item => item.id).indexOf(payload.id)
              paymentList.splice(i, 1, payload)
+             // TODO выглядит как буд-то log-и нужны были для дебага. Если так, то перед пушем удаляй(за редким исключением)
              console.log('id', payload.id)
              console.log('payload', payload)
              state.paymentList = [...paymentList]
-
+// TODO зачем пропуск?
          }
-
+// TODO зачем пропуск?
      },
      getters: {
          getPaymentList: state => state.paymentList,
@@ -46,6 +47,7 @@ Vue.use(Vuex)
          fetchData ({commit}) {
             return new Promise( resolve => {
                 setTimeout(() => {
+                    // TODO эти данные лучше вынести отдельно в какой-нибудь temporaryState или типо того
                     resolve([
                         {
                             id: 1,
@@ -147,6 +149,7 @@ Vue.use(Vuex)
              return new Promise(resolve => {
                  setTimeout(() => {
                      resolve([
+                         // TODO лучше тоже добавить в enum-ку
                          'Food',
                          'Transport',
                          'Education',

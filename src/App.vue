@@ -10,6 +10,7 @@
   </v-app>
 </template>
 
+<!--TODO скрипты лучше писать в отдельных файлах и импортить-->
 <script>
 
 import Header from "@/components/Header";
