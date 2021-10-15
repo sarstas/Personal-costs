@@ -2,9 +2,9 @@
   <div>
     <template>
       <v-container>
-        <div class="text-h5 text-sm-h3 mb-8">My personal costs</div>
+        <h1 class="text-h5 text-sm-h3 py-8">My personal costs</h1>
         <v-row>
-          <v-col>
+          <v-col class=" ">
             <v-dialog width="600">
               <template v-slot:activator="{ on }">
                 <v-btn color="teal"
@@ -58,7 +58,7 @@
             />
           </v-col>
 
-          <v-col>
+          <v-col class="d-flex align-center">
             <ChartDoughnut />
           </v-col>
         </v-row>
