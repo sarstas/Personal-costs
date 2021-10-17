@@ -1,0 +1,75 @@
+//Variable
+$base-color: #4db6ac;
+$darker-base-color: #3dafa4;
+
+$primary: #23adad;
+$greyLight: #23adade1;
+$greyLight-2: #cbe0dd;
+$greyDark: #2d4848;
+
+html {
+  font-size: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.page {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 48px 1fr 123px;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.container {
+  padding-left: calc(50% - 585px);
+  padding-right: calc(50% - 585px);
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+}
+
+//import components style
+@import "header";
+@import "footer";
+@import "dashboard";
+@import "diagram";
