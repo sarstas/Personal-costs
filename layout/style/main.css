@@ -446,4 +446,14 @@ tr .icons__item:not(:last-child) {
   opacity: 0.5;
 }
 
+@media screen and (max-width: 767px) {
+  .wrapper__form {
+    padding: 35px 5px;
+  }
+
+  .form {
+    padding: 3rem 0.5rem 0;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
