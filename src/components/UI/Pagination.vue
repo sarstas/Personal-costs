@@ -10,6 +10,7 @@
   </div>
 </template>
 
+<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
 export default {
   name: "Pagination",
