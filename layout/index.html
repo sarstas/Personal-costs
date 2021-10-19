@@ -1,7 +1,11 @@
+<!--у тебя уже есть index.html, на проект он должен быть один.
+Точка входа в приложение App.vue файл, как мне просмотреть этот темплейт кроме как просто открыть файл в браузере?-->
 <!DOCTYPE html>
+<!--у тебя используются английский язык, почему тут указан ru?-->
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+<!--title обычно пишут перед /head-->
     <title>MyCosts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/normalize.css">
@@ -14,6 +18,7 @@
             <div class="logo">
                 <img class="logo__img" src="img/logo.png" alt="logo costs">
             </div>
+            <!--li не может быть дочерним для nav, w3 validator ругается. Надо было оставить просто <a></a>-->
             <nav class="menu">
                 <li class="menu__item"><a class="menu__link" href="#">About</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">Dashboard</a></li>
@@ -24,7 +29,10 @@
         <main class="main container">
             <div class="dashboard">
                 <h1 class="dashboard__title">My personal Costs</h1>
+                <!--не пытайся уместить все в одну строчку, плохо же читается. Мог перенести иконку.-->
+                <!--класс dashboard__btn не существует-->
                 <button class="dashboard__btn add-btn" type="button">Add new costs <i class="fas fa-plus my-plus"></i></button>
+                <!--класс dashboard__table не существует-->
                 <div class="dashboard__table table-wrap">
                     <table class="table">
                         <thead class="table__header">
@@ -42,6 +50,7 @@
                             <td class="table__column" data-label="date">28.03.2020</td>
                             <td class="table__column" data-label="category">Food</td>
                             <td class="table__column" data-label="amount">169</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -49,6 +58,7 @@
                             <td class="table__column" data-label="date">30.03.2020</td>
                             <td class="table__column" data-label="category">Transport</td>
                             <td class="table__column" data-label="amount">25</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -56,6 +66,7 @@
                             <td class="table__column" data-label="date">30.03.2020</td>
                             <td class="table__column" data-label="category">Food</td>
                             <td class="table__column" data-label="amount">150</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -63,6 +74,7 @@
                             <td class="table__column" data-label="date">1.04.2020</td>
                             <td class="table__column" data-label="category">Transport</td>
                             <td class="table__column" data-label="amount">25</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -70,6 +82,7 @@
                             <td class="table__column" data-label="date">4.04.2020</td>
                             <td class="table__column" data-label="category">Education</td>
                             <td class="table__column" data-label="amount">250</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -77,6 +90,7 @@
                             <td class="table__column" data-label="date">28.03.2020</td>
                             <td class="table__column" data-label="category">Food</td>
                             <td class="table__column" data-label="amount">169</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -84,6 +98,7 @@
                             <td class="table__column" data-label="date">30.03.2020</td>
                             <td class="table__column" data-label="category">Transport</td>
                             <td class="table__column" data-label="amount">25</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -91,6 +106,7 @@
                             <td class="table__column" data-label="date">30.03.2020</td>
                             <td class="table__column" data-label="category">Food</td>
                             <td class="table__column" data-label="amount">150</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -98,6 +114,7 @@
                             <td class="table__column" data-label="date">1.04.2020</td>
                             <td class="table__column" data-label="category">Transport</td>
                             <td class="table__column" data-label="amount">25</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         <tr class="table__row">
@@ -105,19 +122,23 @@
                             <td class="table__column" data-label="date">4.04.2020</td>
                             <td class="table__column" data-label="category">Education</td>
                             <td class="table__column" data-label="amount">250</td>
+                            <!--не умещай все в одну строчку, самому удобно было это читать?-->
                             <td class="table__column table__action" data-label="action"><i class="fas fa-pencil-alt pointer"></i><i class="fas fa-trash-alt pointer"></i></td>
                         </tr>
                         </tbody>
                     </table>
+                    <!--зачем тебе этот id?-->
                     <div id="pagination" class="wrapper-pagination">
                         <ul class="pages">
                             <li class="pages__btn pointer"><i class="fas fa-arrow-left"></i></li>
+                            <!--лишний пробел перед 1-->
                             <li class="pages__numbers"> 1</li>
                             <li class="pages__numbers active">2</li>
                             <li class="pages__numbers">3</li>
                             <li class="pages__numbers">4</li>
                             <li class="pages__numbers">5</li>
                             <li class="pages__numbers">6</li>
+                            <!--иконку бы использовал какую-нибудь чтоль, ради этих ... целых два класса со стилями написал-->
                             <li class="pages__dots">...</li>
                             <li class="pages__numbers"> 10</li>
                             <li class="pages__btn pointer"><i class="fas fa-arrow-right"></i></li>
@@ -132,6 +153,7 @@
                     <span class="diagram__category diagram__red">Transport</span>
                     <span class="diagram__category diagram__brown">Clothing</span>
                 </div>
+                <!--неудачное название для класса, родительский блок называется diagram, а дочерний wrapper. Надо заменить на что-нибудь более подходящее-->
                 <div class="wrapper__diagram">
                     <img class="diagram__img" src="img/diagram.png" alt="diagram">
                 </div>
@@ -139,6 +161,7 @@
         </main>
         <footer class="footer">
             <div class="icons">
+                <!--почему бы не добавить cursor: pointer в какой-нибудь класс footer__icon, либо использовать :hover? Так будет меньше писанины-->
                 <div class="icons__item pointer"><i class="fas fa-home"></i></div>
                 <div class="icons__item pointer"><i class="far fa-envelope"></i></div>
                 <div class="icons__item pointer"><i class="far fa-calendar-alt"></i></div>

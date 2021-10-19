@@ -1,3 +1,5 @@
+// все цвета надо вынести в отдельный _variables.scss и импортить оттуда
+// к тому же нельзя названия по типу grey использовать нельзя
 //Variable
 $base-color: #4db6ac;
 $darker-base-color: #3dafa4;
@@ -68,6 +70,7 @@ ul {
   }
 }
 
+// импорт должны быть сверху
 //import components style
 @import "header";
 @import "footer";

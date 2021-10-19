@@ -1,6 +1,10 @@
+// плохое форматирование по всему файлу
+
 .pointer {
   cursor: pointer;
 }
+
+// копипаста из _modalWindow.scss, даже IDE подсказывает
 .add-btn {
   background-color: $darker-base-color;
   border: none;
@@ -14,12 +18,13 @@
   font-weight: 600;
   font-size: 1.6rem;
   transition: background-color .4s ;
-  margin: 2rem 2rem 0;
+  margin: 2rem 2rem 0; //чтобы кнопка выглядела нормально в самом темплейте надо описывать в родительском контейнере, это не задача кнопки, данный стиль неуместен
   &:hover {
     background-color: $greyDark;
   }
 }
 
+// margin стили дублируются
 .dashboard__title {
   margin-top: 20px;
   font-weight: 400;
@@ -28,39 +33,42 @@
   margin: 2rem 2rem 0;
 }
 
+// не понятно к чему префикс my
 .my-plus {
   margin-left: 15px;
 }
 
 .table-wrap {
-  text-align: center;
-  display: inline-block;
-  background-color: #fff;
+  text-align: center; // зачем?
+  display: inline-block; // зачем?
+  background-color: #fff; // зачем?
   padding: 2rem 2rem;
-  color: #195B55FF;
+  color: #195B55FF; // такие цвета надо выносить в отдельные переменные
 }
 
 .table {
   font-size: 1.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; // цвет надо вынести
   width: 100%;
-  margin:0;
-  padding:0;
+  margin:0; // зачем?
+  padding:0; // зачем?
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 0; // зачем?
+  // дубляж __header-item раз
   &__header-item, &__column {
     padding: 10px;
     text-align: center;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #ddd; // цвет надо вынести
   }
   &__action {
     display: flex;
     justify-content: space-around;
   }
   &__row {
-    border: 1px solid #ddd;
-    padding: 5px;
+    border: 1px solid #ddd; // цвет надо вынести
+    padding: 5px; // зачем? Посмотри в инспекторе как стиль отрабатывает происходит
   }
+  // дубляж __header-item два
   &__header-item {
     color: #fff;
     background-color: $primary;
@@ -70,6 +78,7 @@
   }
 }
 
+// бесполезный класс, если удалить его, то ничего не ломается
 .wrapper-pagination {
   display: flex;
   flex-direction: column;
@@ -78,6 +87,7 @@
   color: $greyDark;
 }
 
+// нигде не используется
 .items-list {
   max-width: 90vw;
   margin: 2rem;
@@ -91,6 +101,7 @@
   }
 }
 
+// не используется
 .item {
   width: 10rem;
   height: 10rem;
@@ -133,8 +144,11 @@
   border-radius: 0.6rem;
   background: #ffffff;
   box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+  // дубдяж __numbers раз
   &__numbers,
   &__btn,
+    // дубдяж __dots раз
+    // к тому же __dots не очень хорошо использовать, в html расписал
   &__dots {
     display: flex;
     justify-content: center;
@@ -144,6 +158,7 @@
     cursor: pointer;
   }
 
+  // дубдяж __dots два
   &__dots {
     width: 2.6rem;
     height: 2.6rem;
@@ -151,6 +166,7 @@
     cursor: initial;
   }
 
+  // дубдяж __numbers два
   &__numbers {
     width: 2.6rem;
     height: 2.6rem;
@@ -168,6 +184,7 @@
     }
   }
 
+  // тоже дублируется выше
   &__btn {
     color: $greyLight;
     pointer-events: none;

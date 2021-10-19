@@ -1,3 +1,4 @@
+// название файла нельзя в camelCase
 .wrapper {
   position: absolute;
   font-family: Roboto, sans-serif;
@@ -33,14 +34,15 @@
     text-transform: uppercase;
     font-weight: 600;
     opacity: .6;
-    //color: ;
+    //color: ; удали
   }
+  // пусто, удали
   &__content {}
   &__footer {}
 }
 
 .form {
-  //width: 50%
+  //width: 50% удали
   padding: 3rem;
   &__input {
     box-sizing: border-box;
@@ -51,14 +53,15 @@
   }
 }
 
+// к чему такой большой маржин? Он же выглядит убого
 .visible {
   margin-top: 15rem;
   display: none;
-  color: crimson;
+  color: crimson; // описать свой цвет и вынести
 }
 
 .btn {
-  background-color: $darker-base-color;
+  background-color: $darker-base-color; // надо выносить
   border: none;
   height: 36px;
   min-width: 64px;

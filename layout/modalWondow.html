@@ -1,17 +1,25 @@
+<!--название файла нельзя в camelCase-->
+<!--аналогично как я должен проверить этот файл, если не могу до него добраться с самого сайта?-->
+<!--адаптива нет вообще, все плывет при ресайзе, нужно контролировать минимальную ширину-->
 <!DOCTYPE html>
+<!--у тебя используется микс языков, а должен быть один-->
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!--title обычно пишут перед /head, к тому же эту строку надо было разделить на две-->
     <title>ModalWindow</title><meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
+<!--зачем этот комментарий-->
 <!--Modal window -->
 <div class="wrapper">
+<!--как на счет избавиться о кучи оберток?-->
     <div class="wrapper__overlay">
         <div class="wrapper__form">
+            <!--+ должен быть иконкой-->
             <div class="modal__header">Add payment +</div>
             <div class="modal__content">
                 <form class="form">
@@ -24,16 +32,20 @@
                         <option class="select__input" value="housing">Housing</option>
                     </select>
                     <input class="form__input" placeholder="Value" type="number" required />
+                    <!--у кнопки нету type="submit"-->
                     <button class="form__btn btn">Save!</button>
+                    <!--это обычный div, когда сомневаешься стоит ли использовать параграф, юзай div-->
                     <p class="visible">Вы не заполнили обязательные поля</p>
                 </form>
             </div>
+            <!--расположение кнопок ужасно-->
             <div class="modal__footer">
                 <button class="btn" type="button">Close</button>
             </div>
         </div>
     </div>
 </div>
+<!--зачем этот комментарий-->
 <!--Modal window finish-->
 </body>
 </html>
