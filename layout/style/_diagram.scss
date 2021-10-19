@@ -1,6 +1,3 @@
-.wrapper__diagram {
-  max-width: 350px;
-}
 .diagram {
   margin-right: 1rem;
   font-size: 1.6rem;
@@ -8,6 +5,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &__wrapper {
+    max-width: 350px;
+  }
   &__categories {
     display: flex;
     flex-wrap: wrap;
@@ -19,20 +19,21 @@
     justify-content: center;
     margin: 1rem 0 ;
     width: 33%;
+    cursor: pointer;
   }
   &__img {
     width: 100%;
   }
   &__yellow {
-    background-color: #fdff4d;
+    background-color: $diagramColor-1;
   }
   &__green {
-    background-color: #61DB4D;
+    background-color: $diagramColor-2;
   }
   &__red {
-    background-color: #ff4d5e;
+    background-color: $diagramColor-3;
   }
   &__brown {
-    background-color: #a07252;
+    background-color: $diagramColor-4;
   }
 }
