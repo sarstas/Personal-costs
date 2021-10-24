@@ -1,11 +1,8 @@
 <template>
-  <!--TODO ненужная пустая 6-я строка в v-footer-->
   <v-footer
       v-bind="localAttrs"
       :padless="padless"
-
   >
-    <!--TODO стили в html не надо, лучше вынести в класс с width="100%"-->
     <v-card
         flat
         tile
@@ -19,8 +16,7 @@
             class="mx-4"
             icon
         >
-          <!--TODO стили в html такое себе, почему бы не сделать класс с size="24px"?-->
-          <v-icon size="24px">
+          <v-icon>
             {{ icon }}
           </v-icon>
         </v-btn>
@@ -35,7 +31,6 @@
   </v-footer>
 </template>
 
-<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
 export default {
   name: "Footer",
