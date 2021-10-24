@@ -61,9 +61,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters([               //если мы вызвали геттеры таким способом через проксирование, то обращаться к ни
-      'getPaymentList',           //можно уже как будто они в этом файле как к обычному компьтед
-      'getPaymentListFullPrice',  //например мы вызвали ее в верстке - {{ getPaymentFullPrice }}
+    ...mapGetters([
+      'getPaymentList',
+      'getPaymentListFullPrice',
       'getCategoryList'
     ]),
   }
