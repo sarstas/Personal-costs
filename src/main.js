@@ -1,21 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
-import store from './store'
+import store from '@/store'
 import router from '@/router'
-import vuetify from './plugins/vuetify'
-import 'font-awesome/css/font-awesome.min.css'
-import "chart.js"
-import "hchs-vue-charts"
+import modal from '@/plugins/modalWindow'
+import context from '@/plugins/ContextMenu'
+
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
+
 
 Vue.config.productionTip = false
-Vue.use(window.VueCharts)
+Vue.use(modal)
+Vue.use(context)
 
 new Vue({
+  render: h => h(App),
   store,
-  router,
-  vuetify,
-  icons: {
-    iconfont: 'fa4'
-  },
-  render: h => h(App)
+  router
 }).$mount('#app')

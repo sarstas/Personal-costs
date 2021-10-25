@@ -1,0 +1,38 @@
+
+.header {
+  background-color: $base-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0 15px;
+  width: 30px;
+  cursor: pointer;
+  &__img {
+    width: 100%;
+  }
+}
+
+.menu {
+  display: flex;
+  margin-right: 20px;
+  &__item {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    list-style: none;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  &__link {
+    color: #fff;
+    opacity: .62;
+    text-decoration: none;
+    transition: opacity .2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

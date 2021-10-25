@@ -1,7 +1,7 @@
 <template>
   <div>
     About
-    <button type="button" @click="openModalAuth">Open Auth</button>
+
   </div>
 </template>
 
@@ -9,9 +9,7 @@
 export default {
   name: "About",
   methods: {
-    openModalAuth() {
-      this.$modal.show( {title: 'Auth Form', content: 'auth'})
-    }
+
   }
 }
 </script>

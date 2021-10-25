@@ -1,5 +1,7 @@
-.dashboard {
+.dashboard-page {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .add-btn {
   background-color: $darker-base-color;
@@ -134,8 +136,7 @@
   background: #ffffff;
   box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
   &__numbers,
-  &__btn,
-  &__dots {
+  &__btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,12 +145,12 @@
     cursor: pointer;
   }
 
-  &__dots {
-    width: 2.6rem;
-    height: 2.6rem;
-    color: $greyLight;
-    cursor: initial;
-  }
+  //&__dots {
+  //  width: 2.6rem;
+  //  height: 2.6rem;
+  //  color: $greyLight;
+  //  cursor: initial;
+  //}
 
   &__numbers {
     width: 2.6rem;
@@ -170,7 +171,6 @@
 
   &__btn {
     color: $greyLight;
-    pointer-events: none;
 
     &.active {
       color: $greyDark;

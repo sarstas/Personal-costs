@@ -1,16 +1,14 @@
 <template>
-  <v-app-bar
-      app
-      color="teal lighten-2"
-      dense
-      dark
-      flat
-  >
-    <v-toolbar-title>MyLogo</v-toolbar-title>
+  <header class="header container">
+    <div class="logo">
+      <img class="logo__img" src="../assets/img/logo.png" alt="logo costs">
 
-    <v-spacer></v-spacer>
-
-  </v-app-bar>
+    </div>
+    <nav class="menu">
+      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -19,6 +17,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

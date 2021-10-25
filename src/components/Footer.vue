@@ -1,70 +1,23 @@
 <template>
-  <v-footer
-      v-bind="localAttrs"
-      :padless="padless"
-  >
-    <v-card
-        flat
-        tile
-        width="100%"
-        class="teal lighten-2 text-center"
-    >
-      <v-card-text>
-        <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4"
-            icon
-        >
-          <v-icon>
-            {{ icon }}
-          </v-icon>
-        </v-btn>
-      </v-card-text>
-
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-card-text>
-    </v-card>
-  </v-footer>
+  <footer class="footer">
+    <div class="icons">
+      <div class="icons__item pointer"><i class="fas fa-home"></i></div>
+      <div class="icons__item pointer"><i class="far fa-envelope"></i></div>
+      <div class="icons__item pointer"><i class="far fa-calendar-alt"></i></div>
+      <div class="icons__item pointer"><i class="fas fa-trash-alt"></i></div>
+    </div>
+    <div class="copyright">
+      <span>Saraikin Stanislav - 2021</span>
+    </div>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer",
-  data: () => ({
-    icons: [
-      'mdi-home',
-      'mdi-email',
-      'mdi-calendar',
-      'mdi-delete',
-    ],
-    items: [
-      'default',
-      'absolute',
-      'fixed',
-    ],
-    padless: true,
-    variant: 'default',
-  }),
-  computed: {
-    localAttrs () {
-      const attrs = {}
-
-      if (this.variant === 'default') {
-        attrs.absolute = false
-        attrs.fixed = false
-      } else {
-        attrs[this.variant] = true
-      }
-      return attrs
-    },
-  }
+  name: "Footer"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

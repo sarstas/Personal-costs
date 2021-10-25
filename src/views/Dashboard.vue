@@ -1,42 +1,39 @@
 <template>
-  <div>
-    <template>
-      <v-container>
-        <v-row>
-          <v-col sm="12" md="6" >
-            <h1 class="text-h5 text-sm-h3 py-8">My personal costs</h1>
-            <payment-display :items="getPaymentList" :categoryList="getCategoryList" />
-          </v-col>
-
-          <v-col sm="12" md="6" class="d-flex align-center">
-            <ChartDoughnut />
-          </v-col>
-        </v-row>
-      </v-container>
-    </template>
-
+  <div class="dashboard-page">
+    <div>
+      <PaymentsDisplay :items="curentElements" />
+    </div>
+    <div>
+      <PieChart />
+    </div>
   </div>
+
+
 </template>
 
 <script>
-
+import PaymentsDisplay from "@/components/PaymentsDisplay";
 import { mapMutations, mapGetters } from 'vuex'
-import PaymentDisplay from "@/components/PaymentsDisplay"
-import ChartDoughnut from "@/components/ChartDoughnut"
+import PieChart from "@/components/PieChart";
 
 export default {
   name: "Dashboard",
-  components: { PaymentDisplay, ChartDoughnut },
+  components: { PieChart, PaymentsDisplay },
   data() {
     return {
       cur: 1,
-      n: 10,
-      dialog: false,
-      activePicker: null,
-      date: '',
-      menu: false,
-      category: '',
-      amount: ''
+      n: 5,
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'getPaymentList',
+      'getPaymentListFullPrice',
+      'getCategoryList'
+    ]),
+    curentElements() {
+      const { n, cur } = this
+      return this.getPaymentList.slice(n * (cur - 1), n * (cur - 1) + n)
     }
   },
   methods: {
@@ -46,31 +43,31 @@ export default {
       'setPaymentListData'
     ]),
     addPayment() {
-      console.log('AddPayment')
+      this.$modal.show({
+        title: "Add Payment form",
+        content: "AddPaymentForm",
+        action: "Add"
+      })
     },
     changePage (p) {
       this.cur = p
     },
-    save (date) {
-      this.$refs.menu.save(date)
-    },
   },
-  watch: {
-    menu (val) {
-      val && setTimeout(() => (this.activePicker = 'YEAR'))
-    },
-  },
-  computed: {
-    ...mapGetters([
-      'getPaymentList',
-      'getPaymentListFullPrice',
-      'getCategoryList'
-    ]),
+  created () {
+    if (this.$route.params.page){
+      this.cur = +this.$route.params.page
+    }
+
+    if (this.$route.params.action === 'add') {
+      this.$modal.show({title: "Add Payment form", content: "AddPaymentForm" })
+
+    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
+
 .payment
 .btn
   color: aliceblue
