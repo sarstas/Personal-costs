@@ -1,7 +1,4 @@
-# CodeMasters study
-## Personal project - "Personal-costs"
-
-## _Student - Saraikin Stanislav_
+#Personal-costs
 
 ## What is the app?
 These are applications for personal / home finance. In this application, the user can enter their daily expenses by choosing
@@ -71,7 +68,6 @@ npm run lint
 - Functional Programming
 - Intermediate Algorithm Scripting
 
-
 ## 3. Front End Libraries Certification
 - Bootstrap
 - Vuetify
@@ -83,5 +79,5 @@ npm run lint
 - node.js
 - Express
 
-
-
+## Developed by
+Saraikin Stanislav
