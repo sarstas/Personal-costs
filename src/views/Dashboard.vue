@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-page">
+  <div class="dashboard-page main">
     <div>
       <PaymentsDisplay :items="curentElements" />
     </div>

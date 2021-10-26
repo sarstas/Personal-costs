@@ -1,7 +1,13 @@
 <template>
   <div class="dashboard">
     <h1 class="dashboard__title">My personal Costs</h1>
-    <button class="dashboard__btn add-btn" type="button">Add new costs <i class="fas fa-plus my-plus"></i></button>
+    <button
+        class="dashboard__btn add-btn"
+        type="button"
+        @click="addPayment"
+    >
+      Add new costs <i class="fas fa-plus my-plus"></i>
+    </button>
     <div class="dashboard__table table-wrap">
       <table class="table">
         <thead class="table__header">
@@ -14,51 +20,51 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="table__row">
-          <td class="table__column" data-label="idx">1</td>
-          <td class="table__column" data-label="date">28.03.2020</td>
-          <td class="table__column" data-label="category">Food</td>
-          <td class="table__column" data-label="amount">169</td>
+        <tr class="table__row" v-for="(item, idx) in items" :key="idx">
+          <td class="table__column" data-label="idx">{{ idx + 1 }}</td>
+          <td class="table__column" data-label="date">{{ item.date }}</td>
+          <td class="table__column" data-label="category">{{ item.category }}</td>
+          <td class="table__column" data-label="amount">{{ item.value }}</td>
           <td class="table__column table__action" data-label="action">
-            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-ellipsis-v context-menu" @click="onclickContextItem($event, item)"></i>
           </td>
         </tr>
-        <tr class="table__row">
-          <td class="table__column" data-label="idx">2</td>
-          <td class="table__column" data-label="date">28.03.2020</td>
-          <td class="table__column" data-label="category">Food</td>
-          <td class="table__column" data-label="amount">169</td>
-          <td class="table__column table__action" data-label="action">
-            <i class="fas fa-ellipsis-v"></i>
-          </td>
-        </tr>
-        <tr class="table__row">
-          <td class="table__column" data-label="idx">3</td>
-          <td class="table__column" data-label="date">28.03.2020</td>
-          <td class="table__column" data-label="category">Food</td>
-          <td class="table__column" data-label="amount">169</td>
-          <td class="table__column table__action" data-label="action">
-            <i class="fas fa-ellipsis-v"></i>
-          </td>
-        </tr>
-        <tr class="table__row">
-          <td class="table__column" data-label="idx">4</td>
-          <td class="table__column" data-label="date">28.03.2020</td>
-          <td class="table__column" data-label="category">Food</td>
-          <td class="table__column" data-label="amount">169</td>
-          <td class="table__column table__action" data-label="action">
-            <i class="fas fa-ellipsis-v"></i>
-          </td>
-        </tr>
-        <tr class="table__row">
-          <td class="table__column" data-label="idx">5</td>
-          <td class="table__column" data-label="date">28.03.2020</td>
-          <td class="table__column" data-label="category">Food</td>
-          <td class="table__column" data-label="amount">169</td>
-          <td class="table__column table__action" data-label="action">
-            <i class="fas fa-ellipsis-v"></i>
-          </td>
-        </tr>
+<!--        <tr class="table__row">-->
+<!--          <td class="table__column" data-label="idx">2</td>-->
+<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
+<!--          <td class="table__column" data-label="category">Food</td>-->
+<!--          <td class="table__column" data-label="amount">169</td>-->
+<!--          <td class="table__column table__action" data-label="action">-->
+<!--            <i class="fas fa-ellipsis-v"></i>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr class="table__row">-->
+<!--          <td class="table__column" data-label="idx">3</td>-->
+<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
+<!--          <td class="table__column" data-label="category">Food</td>-->
+<!--          <td class="table__column" data-label="amount">169</td>-->
+<!--          <td class="table__column table__action" data-label="action">-->
+<!--            <i class="fas fa-ellipsis-v"></i>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr class="table__row">-->
+<!--          <td class="table__column" data-label="idx">4</td>-->
+<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
+<!--          <td class="table__column" data-label="category">Food</td>-->
+<!--          <td class="table__column" data-label="amount">169</td>-->
+<!--          <td class="table__column table__action" data-label="action">-->
+<!--            <i class="fas fa-ellipsis-v"></i>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr class="table__row">-->
+<!--          <td class="table__column" data-label="idx">5</td>-->
+<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
+<!--          <td class="table__column" data-label="category">Food</td>-->
+<!--          <td class="table__column" data-label="amount">169</td>-->
+<!--          <td class="table__column table__action" data-label="action">-->
+<!--            <i class="fas fa-ellipsis-v"></i>-->
+<!--          </td>-->
+<!--        </tr>-->
         </tbody>
       </table>
       <div id="pagination" class="pagination-wrapper">
@@ -118,6 +124,13 @@ export default {
       ]
       this.$context.show({event, items})
     },
+    addPayment() {
+      this.$modal.show({
+        title: "Add Payment form",
+        content: "AddPaymentForm",
+        action: "Add"
+      })
+    },
     actionDelete(id) {
       this.deleteElementFromPaymentList(id)
       this.$context.close()
@@ -137,5 +150,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dashboard {
+  &__btn {
+    cursor: pointer;
+  }
+}
 
+.context-menu {
+  cursor: pointer;
+}
 </style>

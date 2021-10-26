@@ -277,6 +277,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: -1;
 }
 .diagram__categories {
   display: flex;
@@ -358,25 +360,6 @@
   color: crimson;
 }
 
-.btn {
-  background-color: #2a7e75;
-  border: none;
-  height: 36px;
-  min-width: 64px;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.6rem;
-  transition: background-color 0.4s;
-  margin: 2rem 2rem 0;
-}
-.btn:hover {
-  background-color: #2d4848;
-}
-
 .select__input {
   background: #eee;
 }
@@ -443,7 +426,7 @@ ul {
 
 @media screen and (max-width: 767px) {
   .main {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
