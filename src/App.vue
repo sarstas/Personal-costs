@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/style/main.css"
+@import "assets/style/main.css" // не понял такого импорта, у тебя же есть main.scss
 
 //@import "assets/style/main.css"
 
@@ -76,7 +76,7 @@ export default {
 
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
   opacity: 0
-
+//много лишних отступов
 
 
 
