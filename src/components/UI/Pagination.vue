@@ -39,9 +39,6 @@ export default {
       this.$emit('paginate', p)
     }
   },
-  mounted() {
-
-  }
 
 }
 </script>
@@ -50,18 +47,20 @@ export default {
 .pagination
   display: flex
   justify-content: center
-  margin-top: 30px
+  //margin-top: 30px
+  font-size: 1.6rem
   &__btn
     padding: 10px
     margin: 10px
     cursor: pointer
     border: none
-    background-color: rgba(148, 143, 143, 0.69)
+    background-color: var(--greyLight)
     transition: .3s
+    border-radius: 4px
     &:hover
-      background-color: #09a954
+      background-color: var(--greyLight-2)
     
 .active
-  background-color: #09a954
+  background-color: var(--base-color)
   color: #fff
 </style>

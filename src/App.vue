@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="page">
+  <div id="app">
     <Header />
-    <main class="payment center">
+    <main class="payment container">
       <transition name="fade">
         <modal-window-add v-bind="modalSettings" v-if="modalSettings.modalIsShow"/>
       </transition>
@@ -10,22 +10,18 @@
       </transition>
       <router-view />
     </main>
-    <Footer />
   </div>
 </template>
 
 <script>
-
-import ContextMenu from "@/components/ContextMenu";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ContextMenu from "@/components/ContextMenu";
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer,
     ContextMenu,
+    Header,
     ModalWindowAdd: () => import(/*webpackChunkName: "ModalWindow"*/ '@/components/ModalWindowAdd')
   },
   data() {
@@ -47,8 +43,8 @@ export default {
     },
   },
   created () {
-    this.$store.dispatch('fetchData')
-    this.$store.dispatch('fetchCategoryList')
+    // this.$store.dispatch('fetchData')
+    // this.$store.dispatch('fetchCategoryList')
   },
 
   mounted() {
@@ -58,27 +54,28 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "assets/style/main.css" // не понял такого импорта, у тебя же есть main.scss
+<style lang="scss">
+@import "assets/normalize.css";
+@import "assets/styles/main.scss";
 
-//@import "assets/style/main.css"
+#app {
+  font-family: Arial, sans-serif;
+}
+.center {
+  padding-left: calc(50% - 570px);
+  padding-right: calc(50% - 570px);
+}
 
-#app
-  font-family: Arial, sans-serif
-
-.center
-  padding-left: calc(50% - 570px)
-  padding-right: calc(50% - 570px)
-
-
-.fade-enter-active, .fade-leave-active
-  transition: opacity .5s
-
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */{
   opacity: 0
-//много лишних отступов
+}
 
-
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
 
 
 </style>

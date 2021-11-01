@@ -68,10 +68,10 @@ export default {
     bottom: 0
     left: 0
     right: 0
-    //background-color: rgba(147, 144, 144, 0.8)
     display: flex
     justify-content: center
 .context
+  font-size: 1.6rem
   position: relative
   z-index: 1
   position: absolute

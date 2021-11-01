@@ -28,10 +28,12 @@ Vue.use(Vuex)
              const paymentList = [...state.paymentList]
              const i = paymentList.map(item => item.id).indexOf(payload.id)
              paymentList.splice(i, 1, payload)
-             console.log('id', payload.id)
-             console.log('payload', payload)
              state.paymentList = [...paymentList]
 
+         },
+         resetDataState (state) {
+             state.paymentList = []
+             state.categoryList = []
          }
 
      },
@@ -43,7 +45,7 @@ Vue.use(Vuex)
          getCategoryList: state => state.categoryList
      },
      actions: {
-         fetchData ({commit}) {
+         fetchData ({ commit }) {
             return new Promise( resolve => {
                 setTimeout(() => {
                     resolve([
@@ -104,14 +106,14 @@ Vue.use(Vuex)
                         {
                             id: 10,
                             date: '28.03.2020',
-                            category: 'Food',
-                            value: 169,
+                            category: 'Education',
+                            value: 1150,
                         },
                         {
                             id: 11,
                             date: '24.03.2020',
-                            category: 'Transport',
-                            value: 360,
+                            category: 'Education',
+                            value: 2000,
                         },
                         {
                             id: 12,
@@ -134,8 +136,8 @@ Vue.use(Vuex)
                         {
                             id: 15,
                             date: '24.03.2020',
-                            category: 'Food',
-                            value: 532,
+                            category: 'Sport',
+                            value: 1800,
                         },
                     ])
                 }, 500)

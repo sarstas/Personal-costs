@@ -1,25 +1,16 @@
 <template>
-  <div class="dashboard">
-    <h1 class="dashboard__title">My personal Costs</h1>
-    <button
-        class="dashboard__btn add-btn"
-        type="button"
-        @click="addPayment"
-    >
-      Add new costs <i class="fas fa-plus my-plus"></i>
-    </button>
-    <div class="dashboard__table table-wrap">
-      <table class="table">
-        <thead class="table__header">
-        <tr class="table__row">
-          <th class="table__header-item">#</th>
-          <th class="table__header-item">Date</th>
-          <th class="table__header-item">Category</th>
-          <th class="table__header-item">Value</th>
-          <th class="table__header-item">Action</th>
-        </tr>
-        </thead>
-        <tbody>
+  <div class="dashboard__table table-wrap">
+    <table class="table">
+      <thead class="table__header">
+      <tr class="table__row">
+        <th class="table__header-item">#</th>
+        <th class="table__header-item">Date</th>
+        <th class="table__header-item">Category</th>
+        <th class="table__header-item">Value</th>
+        <th class="table__header-item">Action</th>
+      </tr>
+      </thead>
+      <tbody>
         <tr class="table__row" v-for="(item, idx) in items" :key="idx">
           <td class="table__column" data-label="idx">{{ idx + 1 }}</td>
           <td class="table__column" data-label="date">{{ item.date }}</td>
@@ -29,61 +20,8 @@
             <i class="fas fa-ellipsis-v context-menu" @click="onclickContextItem($event, item)"></i>
           </td>
         </tr>
-<!--        <tr class="table__row">-->
-<!--          <td class="table__column" data-label="idx">2</td>-->
-<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
-<!--          <td class="table__column" data-label="category">Food</td>-->
-<!--          <td class="table__column" data-label="amount">169</td>-->
-<!--          <td class="table__column table__action" data-label="action">-->
-<!--            <i class="fas fa-ellipsis-v"></i>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        <tr class="table__row">-->
-<!--          <td class="table__column" data-label="idx">3</td>-->
-<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
-<!--          <td class="table__column" data-label="category">Food</td>-->
-<!--          <td class="table__column" data-label="amount">169</td>-->
-<!--          <td class="table__column table__action" data-label="action">-->
-<!--            <i class="fas fa-ellipsis-v"></i>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        <tr class="table__row">-->
-<!--          <td class="table__column" data-label="idx">4</td>-->
-<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
-<!--          <td class="table__column" data-label="category">Food</td>-->
-<!--          <td class="table__column" data-label="amount">169</td>-->
-<!--          <td class="table__column table__action" data-label="action">-->
-<!--            <i class="fas fa-ellipsis-v"></i>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        <tr class="table__row">-->
-<!--          <td class="table__column" data-label="idx">5</td>-->
-<!--          <td class="table__column" data-label="date">28.03.2020</td>-->
-<!--          <td class="table__column" data-label="category">Food</td>-->
-<!--          <td class="table__column" data-label="amount">169</td>-->
-<!--          <td class="table__column table__action" data-label="action">-->
-<!--            <i class="fas fa-ellipsis-v"></i>-->
-<!--          </td>-->
-<!--        </tr>-->
-        </tbody>
-      </table>
-      <div id="pagination" class="pagination-wrapper">
-        <ul class="pages">
-          <li class="pages__btn"><i class="fas fa-arrow-left"></i></li>
-          <li class="pages__numbers"> 1</li>
-          <li class="pages__numbers active">2</li>
-          <li class="pages__numbers">3</li>
-          <li class="pages__numbers">4</li>
-          <li class="pages__numbers">5</li>
-          <li class="pages__numbers">6</li>
-          <li class="pages__numbers">...</li>
-          <li class="pages__numbers"> 10</li>
-          <li class="pages__btn">
-            <i class="fas fa-arrow-right"></i>
-          </li>
-        </ul>
-      </div>
-    </div>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -124,13 +62,6 @@ export default {
       ]
       this.$context.show({event, items})
     },
-    addPayment() {
-      this.$modal.show({
-        title: "Add Payment form",
-        content: "AddPaymentForm",
-        action: "Add"
-      })
-    },
     actionDelete(id) {
       this.deleteElementFromPaymentList(id)
       this.$context.close()
@@ -150,13 +81,153 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &__btn {
-    cursor: pointer;
+.context-menu {
+  padding: 5px;
+  cursor: pointer;
+}
+.dashboard__title {
+  font-weight: 400;
+  font-size: 4rem;
+  opacity: .7;
+  margin: 2rem 2rem 0;
+}
+
+.my-plus {
+  margin-left: 15px;
+}
+
+.table-wrap {
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  padding: 2rem 2rem;
+  color: var(--greyDark);
+}
+
+.table {
+  font-size: 1.6rem;
+  border: 1px solid var(--darker-base-color);
+  width: 100%;
+  margin:0;
+  padding:0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  &__header-item, &__column {
+    color: var(--primary);
+    padding: 10px;
+    text-align: center;
+    border-right: 1px solid var(--darker-base-color);
+  }
+  &__action {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__row {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-bottom: 2px solid #ccc;
+  }
+  &__header-item {
+    background-color: var(--primary);
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
   }
 }
 
-.context-menu {
+.item {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--greyDark);
   cursor: pointer;
+
+  span {
+    background: #ffffff;
+    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+    border-radius: 0.6rem;
+    padding: 2rem;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    span {
+      transform: scale(1.2);
+      color: var(--primary);
+    }
+  }
 }
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  margin: 3rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+  &__numbers,
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 0.4rem;
+    &:hover {
+      color: var(--primary);
+    }
+
+    &.active {
+      color: #ffffff;
+      background: var(--primary);
+      font-weight: 600;
+      border: 1px solid var(--primary);
+    }
+  }
+}
+
+//adaptive table
+@media screen and (max-width: 600px) {
+  .table {
+    border: 0;
+    &__header {
+      display: none;
+    }
+    &__row {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ccc;
+    }
+    &__column {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+      border-right: 1px solid transparent;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+
+
 </style>

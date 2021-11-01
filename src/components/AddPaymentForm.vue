@@ -1,5 +1,5 @@
 <template>
-  <form className="form">
+  <form class="form">
     <input class="form__input" v-model="date" placeholder="date" />
     <select class="form__input" name="category" v-model="category">
       <option
@@ -11,7 +11,7 @@
       </option>
     </select>
     <input class="form__input" placeholder="Value" v-model="value" type="number" required />
-    <button @click.prevent="onSaveClick" @click="onCloseClick" >Save!</button>
+    <button @click.prevent="onSaveClick" @click="onCloseClick" class="form__btn">Save!</button>
     <p>{{ error }}</p>
   </form>
 </template>
@@ -89,11 +89,21 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.form
-  &__input
-    width: 150px
-    height: 30px
-
+<style lang="scss" scoped>
+.form {
+  display: flex;
+  flex-direction: column;
+  //flex: 1 auto;
+  &__input {
+    border: none;
+    margin-top: 15px;
+    padding: 5px;
+    //width: 150px;
+    //height: 30px;
+  }
+  &__btn {
+    margin-top: 15px;
+  }
+}
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     About
-
+    app for costs
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 export default {
   name: "About",
   methods: {
-
   }
 }
 </script>

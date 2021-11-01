@@ -1,12 +1,10 @@
 //import components style
-@import "normalize.css";
-@import "color-var";
-@import "header";
-@import "footer";
-@import "dashboard";
-@import "diagram";
-@import "modalWindow";
-
+@import "variables";
+//@import "header";
+//@import "footer";
+//@import "dashboard";
+//@import "diagram";
+//@import "modal-window";
 
 html {
   font-size: 10px;
@@ -57,9 +55,9 @@ ul {
   padding-right: calc(50% - 585px);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 900px) {
   .main {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
   }
@@ -68,6 +66,3 @@ ul {
     margin-bottom: 2rem;
   }
 }
-
-
-

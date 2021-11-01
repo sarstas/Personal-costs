@@ -1,24 +1,31 @@
 <template>
-  <div class="dashboard-page main">
-    <div>
+  <div class="dashboard">
+    <div class="dashboard__table">
+      <button class="btn" type="button" @click="addPayment">Add payment <i class="fas fa-plus my-plus"></i></button>
       <PaymentsDisplay :items="curentElements" />
+      <Pagination
+          :cur="this.cur"
+          :n="this.n"
+          :length="getPaymentList.length"
+          @paginate="changePage"
+      />
     </div>
-    <div>
-      <PieChart />
+    <div class="dashboard__diagram">
+      <canvas ref="canvas"></canvas>
     </div>
   </div>
-
-
 </template>
 
 <script>
 import PaymentsDisplay from "@/components/PaymentsDisplay";
+import Pagination from "@/components/UI/Pagination";
+import { Pie } from "vue-chartjs"
 import { mapMutations, mapGetters } from 'vuex'
-import PieChart from "@/components/PieChart";
 
 export default {
   name: "Dashboard",
-  components: { PieChart, PaymentsDisplay },
+  extends: Pie,
+  components: { PaymentsDisplay, Pagination },
   data() {
     return {
       cur: 1,
@@ -52,45 +59,95 @@ export default {
     changePage (p) {
       this.cur = p
     },
+    newDiagram(payments,categories){
+      this.renderChart({
+        labels: categories,
+        datasets: [{
+          label: 'Payments',
+          data: categories.map(c => {
+            return payments.reduce((total, r) => {
+              if (r.category === c) {
+                total += r.value
+              }
+              return total
+            }, 0)
+          })
+          ,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      })
+    }
   },
-  created () {
-    if (this.$route.params.page){
-      this.cur = +this.$route.params.page
-    }
-
-    if (this.$route.params.action === 'add') {
-      this.$modal.show({title: "Add Payment form", content: "AddPaymentForm" })
-
-    }
+  async mounted() {
+    this.$store.commit('resetDataState')  //временное кривое решение, что бы запросы не дублировались
+    await this.$store.dispatch('fetchData')
+    await this.$store.dispatch('fetchCategoryList')
+    this.newDiagram(this.getPaymentList, this.getCategoryList)
   }
 }
 </script>
 
-<style lang="sass" scoped>
-
+<style lang="scss" scoped>
 .payment
-.btn
-  color: aliceblue
-  background-color: #09a954
-  padding: 5px 10px
-  margin: 5px
-  border: none
+.my-plus {
+  margin-left: 10px;
+}
+.btn {
+  font-size: 2rem;
+  color: #ccc;
+  background-color: var(--primary);
+  padding: 10px 10px;
+  margin: 2rem 2rem 0;
+  border: none;
+  max-width: 300px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
 
-  display: inline
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
-.links
-  display: flex
+  &__table {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  &__diagram {
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    align-items: center;
+  }
+}
 
-  &__item
-    text-decoration: none
-    color: black
-    display: block
-    margin: 10px 0
-    cursor: pointer
-    margin-right: 50px
-    font-weight: bold
-    color: #09a954
-    &:hover
-      color: #008b8b
+@media screen and (max-width: 1023px) {
+  .dashboard {
+    &__table {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
+    &__diagram {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
+  }
+}
 
 </style>
