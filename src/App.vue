@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="page">
     <Header />
     <main class="payment container">
       <transition name="fade">
@@ -10,11 +10,13 @@
       </transition>
       <router-view />
     </main>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ContextMenu from "@/components/ContextMenu";
 
 export default {
@@ -22,6 +24,7 @@ export default {
   components: {
     ContextMenu,
     Header,
+    Footer,
     ModalWindowAdd: () => import(/*webpackChunkName: "ModalWindow"*/ '@/components/ModalWindowAdd')
   },
   data() {

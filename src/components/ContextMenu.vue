@@ -45,7 +45,7 @@ export default {
     styles() {
       return {
         top: `${this.yPos + 10}px`,
-        left: `${this.xPos +30}px`
+        left: `${this.xPos +20}px`
       }
     }
   },

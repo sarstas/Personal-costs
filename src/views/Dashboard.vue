@@ -144,6 +144,7 @@ export default {
       grid-column-end: 6;
     }
     &__diagram {
+      margin: 2rem;
       grid-column-start: 1;
       grid-column-end: 6;
     }
