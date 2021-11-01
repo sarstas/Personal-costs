@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <div class="dashboard__table">
-      <button class="btn" type="button" @click="addPayment">Add payment <i class="fas fa-plus my-plus"></i></button>
+      <button class="btn" type="button" @click="addPayment">{{ $t('btnAddPayment') }} <i class="fas fa-plus my-plus"></i></button>
       <PaymentsDisplay :items="curentElements" />
       <Pagination
           :cur="this.cur"
@@ -98,6 +98,7 @@ export default {
     this.$store.commit('resetDataState')  //временное кривое решение, что бы запросы не дублировались
     await this.$store.dispatch('fetchData')
     await this.$store.dispatch('fetchCategoryList')
+
     this.newDiagram(this.getPaymentList, this.getCategoryList)
   }
 }
@@ -118,6 +119,7 @@ export default {
   max-width: 300px;
   box-sizing: border-box;
   border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .dashboard {

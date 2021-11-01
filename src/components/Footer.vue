@@ -1,14 +1,23 @@
 <template>
   <footer class="footer">
+    <div>
+      <button class="locale-btn" type="button" @click="setLocale('en')"><flag iso="us"></flag></button>
+      <button class="locale-btn" type="button" @click="setLocale('ru')"><flag iso="ru"></flag></button>
+    </div>
     <div class="copyright">
-      <span>Saraikin Stanislav - 2021</span>
+      <span>&copy; {{ $t('copyright') }} 2021</span>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  methods: {
+    setLocale(locale) {
+      this.$i18n.locale = locale
+    }
+  }
 }
 </script>
 
@@ -42,5 +51,13 @@ export default {
   font-size: 1.8rem;
   color: #fff;
   margin-top: 15px;
+}
+
+.locale-btn {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  font-size: 2rem;
 }
 </style>

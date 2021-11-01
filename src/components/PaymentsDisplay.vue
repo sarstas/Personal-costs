@@ -4,17 +4,17 @@
       <thead class="table__header">
       <tr class="table__row">
         <th class="table__header-item">#</th>
-        <th class="table__header-item">Date</th>
-        <th class="table__header-item">Category</th>
-        <th class="table__header-item">Value</th>
-        <th class="table__header-item">Action</th>
+        <th class="table__header-item">{{ $t('tableHeadDate') }}</th>
+        <th class="table__header-item">{{ $t('tableHeadCategory') }}</th>
+        <th class="table__header-item">{{ $t('tableHeadValue') }}</th>
+        <th class="table__header-item">{{ $t('tableHeadAction') }}</th>
       </tr>
       </thead>
       <tbody>
         <tr class="table__row" v-for="(item, idx) in items" :key="idx">
           <td class="table__column" data-label="idx">{{ idx + 1 }}</td>
           <td class="table__column" data-label="date">{{ item.date }}</td>
-          <td class="table__column" data-label="category">{{ item.category }}</td>
+          <td class="table__column" data-label="category">{{ $t(`category${item.category}`)  }}</td>
           <td class="table__column" data-label="amount">{{ item.value }}</td>
           <td class="table__column table__action" data-label="action">
             <i class="fas fa-ellipsis-v context-menu" @click="onclickContextItem($event, item)"></i>
@@ -48,13 +48,13 @@ export default {
     onclickContextItem(event, item) {
       const items = [
         {
-          text: 'Edit',
+          text: this.$t('actionEdit'),
           action: () => {
             this.actionEdit(item)
           }
         },
         {
-          text: 'Delete',
+          text: this.$t('actionDelete'),
           action: () => {
             this.actionDelete(item.id)
           }
