@@ -1,0 +1,17 @@
+{
+  "logoText": "My personal costs",
+  "linkDashboard": "Dashboard",
+  "linkAbout": "About",
+  "btnAddPayment": "Add Payment",
+  "tableHeadDate": "Date",
+  "tableHeadCategory": "Category",
+  "tableHeadValue": "Value",
+  "tableHeadAction": "Action",
+  "actionEdit": "Edit",
+  "actionDelete": "Delete",
+  "categoryFood": "Food",
+  "categoryTransport": "Transport",
+  "categoryEducation": "Education",
+  "categorySport": "Sport",
+  "copyright": "Saraikin Stanislav"
+}

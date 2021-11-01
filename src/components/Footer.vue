@@ -15,7 +15,11 @@ export default {
   name: "Footer",
   methods: {
     setLocale(locale) {
-      this.$i18n.locale = locale
+      import(`@/langs/${locale}.json`)
+      .then(res => {
+        this.$i18n.setLocaleMessage(locale, res)
+        this.$i18n.locale = locale
+      })
     }
   }
 }
