@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import en from '@/langs/en.json'
+import en from '@/langs/en.json' // читер:) так не всегда получится. иногда переводы будут только в апи доступны
 
 Vue.use(VueI18n)
 

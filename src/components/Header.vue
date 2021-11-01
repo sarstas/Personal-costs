@@ -48,6 +48,7 @@ export default {
   }
 }
 
+// лучше унести в отдельный файл или выпилить из сборки, история гита всё помнит
 //.switch {
 //  position: relative;
 //  display: inline-block;

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// стор надо тестами покрывать
  export default new Vuex.Store({
     state: {
         paymentList: [],
@@ -46,6 +47,7 @@ Vue.use(Vuex)
      },
      actions: {
          fetchData ({ commit }) {
+             // зачем так? мог вынести в json иил уже через json-server прогнать
             return new Promise( resolve => {
                 setTimeout(() => {
                     resolve([
