@@ -4,10 +4,10 @@
     <main class="payment container">
       <transition name="fade">
         <!--
- очень странно видеть в разметке модалку,
-обычно она создаётся один раз ниже всего контента,
- в неё передаётся кастомный контент
- -->
+         очень странно видеть в разметке модалку,
+        обычно она создаётся один раз ниже всего контента,
+         в неё передаётся кастомный контент
+         -->
         <modal-window-add v-bind="modalSettings" v-if="modalSettings.modalIsShow"/>
       </transition>
       <transition name="fade">

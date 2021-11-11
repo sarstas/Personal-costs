@@ -43,7 +43,7 @@ npm run serve
 
 ### Run devServer to get data using api request
 ```
-npm json-server db.json
+json-server --watch db.json
 ```
 
 ### Compiles and minifies for production

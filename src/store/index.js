@@ -60,7 +60,14 @@ Vue.use(Vuex)
              }),
      },
      actions: {
-        },
+         async fetchData ({ commit }) {
+             await fetch("http://localhost:3000/paymentList")
+                 .then((res) => res.json())
+                 .then((res) => {
+                     commit('setPaymentListData', res );
+                     commit('setLoading');
+                 })
+         },
          async fetchCategoryList ({ commit }) {
              await fetch('http://localhost:3000/categories')
                  .then((res) => res.json())
@@ -68,5 +75,5 @@ Vue.use(Vuex)
                      commit('setCategoryList', res)
                  })
          }
-     }
+    },
  })
