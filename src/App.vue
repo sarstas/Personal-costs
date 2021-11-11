@@ -3,6 +3,11 @@
     <Header />
     <main class="payment container">
       <transition name="fade">
+        <!--
+ очень странно видеть в разметке модалку,
+обычно она создаётся один раз ниже всего контента,
+ в неё передаётся кастомный контент
+ -->
         <modal-window-add v-bind="modalSettings" v-if="modalSettings.modalIsShow"/>
       </transition>
       <transition name="fade">
@@ -15,6 +20,8 @@
 </template>
 
 <script>
+// здесь у строк импортов есть ; а в других файлах встречается без них. Добавь в линтер чтобы были обязательными и пофикси везде
+// по хорошему каждая строка в js заканчивается точкой с запятой
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContextMenu from "@/components/ContextMenu";
@@ -39,9 +46,15 @@ export default {
     onShown(settings) {
       this.modalSettings = settings
       this.modalSettings.modalIsShow = true
+
+      // лучше так
+      // this.modalSettings = {
+      //   ...settings,
+      //   modalIsShow: true
+      // }
     },
     onHide() {
-      this.modalSettings.modalIsShow = false
+      this.modalSettings.modalIsShow = false // зачем эта строка? ты синхронно уничтожаешь объект следующей
       this.modalSettings = {}
     },
   },

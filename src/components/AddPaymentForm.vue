@@ -11,6 +11,10 @@
       </option>
     </select>
     <input class="form__input" placeholder="Value" v-model="value" type="number" required />
+
+<!--    Все лейблы надо унести в переводы, без исключений-->
+
+<!--    type?-->
     <button @click.prevent="onSaveClick" @click="onCloseClick" class="form__btn">Save!</button>
     <p>{{ error }}</p>
   </form>
@@ -47,6 +51,7 @@ export default {
     },
   },
   methods: {
+    // в чём профит конкретно для формы юзать redux паттерн? тебе надо подтянуть общую теорию зачем оно надо
     ...mapMutations([
         'addDataToPaymentList',
         'setEditItem',
@@ -54,7 +59,8 @@ export default {
     onSaveClick () {
       this.error=''
       if(this.value === '' || this.category === ''){
-        return this.error = 'Вы не ввели ничего в поля category или value'
+        // есть смысл добавить библиотеку форм, текущий подход далёк от прода
+        return this.error = 'Вы не ввели ничего в поля category или value' // перевод?
       } else {
         const data = {
           id: this.id = Date.now(),

@@ -1,3 +1,11 @@
+<!--идея компонента понятная, но реализация не очень.-->
+<!--На самом деле из опыта могу подсказать что между модалками/попапами/контекстными меню/нотификациями и т.д.-->
+<!--очень много общего, это всё называется overlay-->
+<!--оно всё умеет позиционироваться поверх контента на экране и имеет общий код закрытия/открытия/динамический zIndex и т.д.-->
+<!--в этом плане, angular cdk очень далеко ушёл и предлагает метакод, без UI-->
+<!--https://material.angular.io/cdk/overlay/overview-->
+<!--альтернативу сходу не подскажу где лучше посмотреть как такие вещи делаются-->
+
 <template>
   <div class="context" v-if="shown" :style="styles">
     <div
@@ -44,8 +52,8 @@ export default {
   computed: {
     styles() {
       return {
-        top: `${this.yPos + 10}px`,
-        left: `${this.xPos +20}px`
+        top: `${this.yPos + 10}px`, // не обязательно хардкодить offset
+        left: `${this.xPos +20}px` // что будет если будет кнопка открытия меню справа+внизу? меню откроется за пределы экрана, это обычно обрабатывают
       }
     }
   },
@@ -60,6 +68,7 @@ export default {
 }
 </script>
 
+<!--а здесь sass, хотя вроде на scss перешёл-->
 <style lang="sass" scoped>
 .overlay
     z-index: 0
@@ -74,7 +83,7 @@ export default {
   font-size: 1.6rem
   position: relative
   z-index: 1
-  position: absolute
+  position: absolute // либо relative/либо absolute, одно из двух,
   background: #eee
   cursor: pointer
   &__item
