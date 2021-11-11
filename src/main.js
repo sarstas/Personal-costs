@@ -11,6 +11,8 @@ import FlagIcon from 'vue-flag-icon'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import ScrollLoader from 'vue-scroll-loader'
+
 library.add(faHatWizard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -18,6 +20,7 @@ Vue.config.productionTip = false
 Vue.use(modal)
 Vue.use(context)
 Vue.use(FlagIcon)
+Vue.use(ScrollLoader)
 
 new Vue({
   i18n,

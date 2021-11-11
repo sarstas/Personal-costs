@@ -41,6 +41,11 @@ npm install
 npm run serve
 ```
 
+### Run devServer to get data using api request
+```
+npm json-server db.json
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
