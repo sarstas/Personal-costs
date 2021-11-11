@@ -35,7 +35,7 @@ export default {
     items: {
       type: Array,
       default() {
-        return []
+        return [];
       },
     },
   },
@@ -129,7 +129,7 @@ export default {
   }
   &__header-item {
     background-color: var(--primary);
-    color: #ccc;
+    color: #fff;
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 1px;

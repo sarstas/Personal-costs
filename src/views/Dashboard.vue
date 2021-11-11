@@ -2,13 +2,20 @@
   <div class="dashboard">
     <div class="dashboard__table">
       <button class="btn" type="button" @click="addPayment">{{ $t('btnAddPayment') }} <i class="fas fa-plus my-plus"></i></button>
-      <PaymentsDisplay :items="curentElements" />
-      <Pagination
-          :cur="this.cur"
-          :n="this.n"
-          :length="getPaymentList.length"
-          @paginate="changePage"
-      />
+      <template v-if="this.getLoading" >
+        <div class="load__wrap">
+          <scroll-loader :loader-method="()=>{}" class="load" />
+        </div>
+      </template>
+      <template v-else >
+        <PaymentsDisplay :items="curentElements" />
+        <Pagination
+            :cur="this.cur"
+            :n="this.n"
+            :length="getPaymentList.length"
+            @paginate="changePage"
+        />
+      </template>
     </div>
     <div class="dashboard__diagram">
       <canvas ref="canvas"></canvas>
@@ -19,8 +26,8 @@
 <script>
 import PaymentsDisplay from "@/components/PaymentsDisplay";
 import Pagination from "@/components/UI/Pagination";
-import { Pie } from "vue-chartjs"
-import { mapMutations, mapGetters } from 'vuex'
+import { Pie } from "vue-chartjs";
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: "Dashboard",
@@ -36,7 +43,9 @@ export default {
     ...mapGetters([
       'getPaymentList',
       'getPaymentListFullPrice',
-      'getCategoryList'
+      'getCategoryList',
+      'getLoading',
+      'getDateForPie'
     ]),
     curentElements() {
       const { n, cur } = this
@@ -59,20 +68,12 @@ export default {
     changePage (p) {
       this.cur = p
     },
-    newDiagram(payments,categories){
+    newDiagram(payments, categories){
       this.renderChart({
         labels: categories,
         datasets: [{
           label: 'Payments',
-          data: categories.map(c => {
-            return payments.reduce((total, r) => {
-              if (r.category === c) {
-                total += r.value
-              }
-              return total
-            }, 0)
-          })
-          ,
+          data: payments,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -96,10 +97,10 @@ export default {
   },
   async mounted() {
     this.$store.commit('resetDataState')  //временное кривое решение, что бы запросы не дублировались
-    await this.$store.dispatch('fetchData')
     await this.$store.dispatch('fetchCategoryList')
+    await this.$store.dispatch('fetchData')
 
-    this.newDiagram(this.getPaymentList, this.getCategoryList)
+    await this.newDiagram(this.getDateForPie, this.getCategoryList)
   }
 }
 </script>
@@ -111,7 +112,7 @@ export default {
 }
 .btn {
   font-size: 2rem;
-  color: #ccc;
+  color: #fff;
   background-color: var(--primary);
   padding: 10px 10px;
   margin: 2rem 2rem 0;
@@ -120,6 +121,7 @@ export default {
   box-sizing: border-box;
   border-radius: 4px;
   text-transform: uppercase;
+  max-height: 43px;
 }
 
 .dashboard {
@@ -139,6 +141,17 @@ export default {
   }
 }
 
+.load__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin-left: 45%;
+}
+
+.load {
+}
+
 @media screen and (max-width: 1023px) {
   .dashboard {
     &__table {
@@ -150,6 +163,9 @@ export default {
       grid-column-start: 1;
       grid-column-end: 6;
     }
+  }
+  .load__wrap {
+    margin-left: 0;
   }
 }
 
