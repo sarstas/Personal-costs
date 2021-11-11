@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// самое время начать писать тесты, начни с пагинации
 export default {
   name: "pagination",
   props: {
@@ -59,7 +60,7 @@ export default {
     border-radius: 4px
     &:hover
       background-color: var(--greyLight-2)
-    
+
 .active
   background-color: var(--base-color)
   color: #fff

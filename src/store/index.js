@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// стор надо тестами покрывать
  export default new Vuex.Store({
     state: {
         paymentList: [],
@@ -59,13 +60,106 @@ Vue.use(Vuex)
              }),
      },
      actions: {
-         async fetchData ({ commit }) {
-            await fetch("http://localhost:3000/paymentList")
-                .then((res) => res.json())
-                .then((res) => {
-                    commit('setPaymentListData', res );
-                    commit('setLoading');
-                })
+         fetchData ({ commit }) {
+             // зачем так? мог вынести в json иил уже через json-server прогнать
+            return new Promise( resolve => {
+                setTimeout(() => {
+                    resolve([
+                        {
+                            id: 1,
+                            date: '28.03.2020',
+                            category: 'Food',
+                            value: 169,
+                        },
+                        {
+                            id: 2,
+                            date: '24.03.2020',
+                            category: 'Transport',
+                            value: 360,
+                        },
+                        {
+                            id: 3,
+                            date: '24.03.2020',
+                            category: 'Food',
+                            value: 532,
+                        },
+                        {
+                            id: 4,
+                            date: '28.03.2020',
+                            category: 'Food',
+                            value: 169,
+                        },
+                        {
+                            id: 5,
+                            date: '24.03.2020',
+                            category: 'Transport',
+                            value: 360,
+                        },
+                        {
+                            id: 6,
+                            date: '24.03.2020',
+                            category: 'Food',
+                            value: 532,
+                        },
+                        {
+                            id: 7,
+                            date: '28.03.2020',
+                            category: 'Food',
+                            value: 169,
+                        },
+                        {
+                            id: 8,
+                            date: '24.03.2020',
+                            category: 'Transport',
+                            value: 360,
+                        },
+                        {
+                            id: 9,
+                            date: '24.03.2020',
+                            category: 'Food',
+                            value: 532,
+                        },
+                        {
+                            id: 10,
+                            date: '28.03.2020',
+                            category: 'Education',
+                            value: 1150,
+                        },
+                        {
+                            id: 11,
+                            date: '24.03.2020',
+                            category: 'Education',
+                            value: 2000,
+                        },
+                        {
+                            id: 12,
+                            date: '24.03.2020',
+                            category: 'Food',
+                            value: 532,
+                        },
+                        {
+                            id: 13,
+                            date: '28.03.2020',
+                            category: 'Food',
+                            value: 169,
+                        },
+                        {
+                            id: 14,
+                            date: '24.03.2020',
+                            category: 'Transport',
+                            value: 360,
+                        },
+                        {
+                            id: 15,
+                            date: '24.03.2020',
+                            category: 'Sport',
+                            value: 1800,
+                        },
+                    ])
+                }, 500)
+            }).then(res => {
+                commit('setPaymentListData', res)
+            })
         },
          async fetchCategoryList ({ commit }) {
              await fetch('http://localhost:3000/categories')

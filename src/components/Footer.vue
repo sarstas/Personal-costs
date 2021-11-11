@@ -15,6 +15,9 @@ export default {
   name: "Footer",
   methods: {
     setLocale(locale) {
+      // в целом пойдёт, но лучше будет чтобы футер об этом не знал
+      // 1) через redux паттерн
+      // 2) отдельный компонент внутри футера по смене языка
       import(`@/langs/${locale}.json`)
       .then(res => {
         this.$i18n.setLocaleMessage(locale, res)
