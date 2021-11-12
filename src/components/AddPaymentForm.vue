@@ -12,10 +12,7 @@
     </select>
     <input class="form__input" placeholder="Value" v-model="value" type="number" required />
 
-<!--    Все лейблы надо унести в переводы, без исключений-->
-
-<!--    type?-->
-    <button @click.prevent="onSaveClick" @click="onCloseClick" class="form__btn">Save!</button>
+    <button type="button" @click.prevent="onSaveClick" @click="onCloseClick" class="form__btn">Save!</button>
     <p>{{ error }}</p>
   </form>
 </template>
@@ -32,7 +29,7 @@ export default {
       category: '',
       value: '',
       error: '',
-    }
+    };
   },
   props: {
     action: String,
@@ -41,13 +38,13 @@ export default {
   computed: {
     getCurrentDate() {
       const today = new Date();
-      const d = today.getDate()
-      const m = today.getMonth() + 1
-      const y = today.getFullYear()
-      return `${d}.${m}.${y}`
+      const d = today.getDate();
+      const m = today.getMonth() + 1;
+      const y = today.getFullYear();
+      return `${d}.${m}.${y}`;
     },
     categoryList() {
-      return  this.$store.getters.getCategoryList
+      return  this.$store.getters.getCategoryList;
     },
   },
   methods: {
@@ -57,42 +54,41 @@ export default {
         'setEditItem',
     ]),
     onSaveClick () {
-      this.error=''
+      this.error='';
       if(this.value === '' || this.category === ''){
         // есть смысл добавить библиотеку форм, текущий подход далёк от прода
-        return this.error = 'Вы не ввели ничего в поля category или value' // перевод?
+        return this.error = 'Вы не ввели ничего в поля category или value'; // перевод?
       } else {
         const data = {
           id: this.id = Date.now(),
           date: this.date || this.getCurrentDate,
           category: this.category,
           value: +this.value,
-        }
+        };
         if (this.action === 'Add') {
-          this.addNewPayment(data)
+          this.addNewPayment(data);
         } else if (this.action === 'Edit') {
-          data.id = this.idEdit
-          this.setEditItem(data)
+          data.id = this.idEdit;
+          this.setEditItem(data);
         }
       }
     },
     addNewPayment (data) {
-      this.addDataToPaymentList(data)
+      this.addDataToPaymentList(data);
     },
     onCloseClick() {
-      this.$modal.hide()
+      this.$modal.hide();
     }
   },
   created() {
     if (this.$route.path.split("/")[1] === "add") {
-      this.id = Date.now()
-      this.category = this.$route.params.category || ""
-      this.value = +this.$route.query?.value || ""
-      this.date = this.getCurrentDate
+      this.id = Date.now();
+      this.category = this.$route.params.category || "";
+      this.value = +this.$route.query?.value || "";
+      this.date = this.getCurrentDate;
     }
   }
-
-}
+};
 </script>
 
 <style lang="scss" scoped>

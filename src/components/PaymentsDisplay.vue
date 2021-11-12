@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex"
+import { mapMutations } from "vuex";
 
 export default {
   name: "PaymentsDisplay",
@@ -41,7 +41,7 @@ export default {
   },
   data() {
     return {
-    }
+    };
   },
   methods: {
     ...mapMutations(["setEditItem", "deleteElementFromPaymentList"]),
@@ -50,34 +50,33 @@ export default {
         {
           text: this.$t('actionEdit'),
           action: () => {
-            this.actionEdit(item)
+            this.actionEdit(item);
           }
         },
         {
           text: this.$t('actionDelete'),
           action: () => {
-            this.actionDelete(item.id)
+            this.actionDelete(item.id);
           }
         }
-      ]
-      this.$context.show({event, items})
+      ];
+      this.$context.show({event, items});
     },
     actionDelete(id) {
-      this.deleteElementFromPaymentList(id)
-      this.$context.close()
+      this.deleteElementFromPaymentList(id);
+      this.$context.close();
     },
     actionEdit(item) {
-      this.$context.close()
+      this.$context.close();
       this.$modal.show({
         title: "Add Payment Form",
         content: "AddPaymentForm",
         action: "Edit",
         idEdit: item.id
-      })
+      });
     }
   }
-
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -28,25 +28,25 @@ export default {
       shown: false,
       xPos: 0,
       yPos: 0
-    }
+    };
   },
   methods: {
     onClick(item) {
-      item.action()
+      item.action();
     },
     onClose() {
-      this.items = []
-      this.shown = false
+      this.items = [];
+      this.shown = false;
     },
     onShown({ items, caller }) {
-      this.items = items
-      this.shown = true
-      this.setPosition(caller)
+      this.items = items;
+      this.shown = true;
+      this.setPosition(caller);
     },
     setPosition(caller) {
-      const pos = caller.getBoundingClientRect()
-      this.xPos = pos.left
-      this.yPos = pos.top
+      const pos = caller.getBoundingClientRect();
+      this.xPos = pos.left;
+      this.yPos = pos.top;
     }
   },
   computed: {
@@ -54,39 +54,42 @@ export default {
       return {
         top: `${this.yPos + 10}px`, // не обязательно хардкодить offset
         left: `${this.xPos +20}px` // что будет если будет кнопка открытия меню справа+внизу? меню откроется за пределы экрана, это обычно обрабатывают
-      }
+      };
     }
   },
   mounted() {
-    this.$context.EventBus.$on('shown', this.onShown)
-    this.$context.EventBus.$on('close', this.onClose)
+    this.$context.EventBus.$on('shown', this.onShown);
+    this.$context.EventBus.$on('close', this.onClose);
   },
   beforeDestroy() {
-    this.$context.EventBus.$off('shown', this.onShown)
-    this.$context.EventBus.$off('close', this.onClose)
+    this.$context.EventBus.$off('shown', this.onShown);
+    this.$context.EventBus.$off('close', this.onClose);
   }
-}
+};
 </script>
 
 <!--а здесь sass, хотя вроде на scss перешёл-->
-<style lang="sass" scoped>
-.overlay
-    z-index: 0
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    display: flex
-    justify-content: center
-.context
-  font-size: 1.6rem
-  position: relative
-  z-index: 1
-  position: absolute // либо relative/либо absolute, одно из двух,
-  background: #eee
-  cursor: pointer
-  &__item
-    color: #09a954
-    margin: 8px
+<style lang="scss" scoped>
+.overlay {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.context {
+    font-size: 1.6rem;
+    z-index: 1;
+    position: absolute;
+    background: #eee;
+    cursor: pointer;
+    &__item {
+        color: #09a954;
+        margin: 8px;
+    }
+}
 </style>

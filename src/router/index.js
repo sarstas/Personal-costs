@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: 'history',
@@ -36,17 +36,17 @@ const router = new VueRouter({
             redirect: '/404'
         },
     ]
-})
+});
 
 const titles = {
     dashboard: 'Dashboard',
     about: 'About',
     notFound: 'Not Found',
-}
+};
 
 router.afterEach((to) => {
-    document.title = titles[to.name]
-})
+    document.title = titles[to.name];
+});
 
-export default router
+export default router;
 

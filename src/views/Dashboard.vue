@@ -37,7 +37,7 @@ export default {
     return {
       cur: 1,
       n: 5,
-    }
+    };
   },
   computed: {
     ...mapGetters([
@@ -48,8 +48,8 @@ export default {
       'getDateForPie'
     ]),
     curentElements() {
-      const { n, cur } = this
-      return this.getPaymentList.slice(n * (cur - 1), n * (cur - 1) + n)
+      const { n, cur } = this;
+      return this.getPaymentList.slice(n * (cur - 1), n * (cur - 1) + n);
     }
   },
   methods: {
@@ -63,10 +63,10 @@ export default {
         title: "Add Payment form",
         content: "AddPaymentForm",
         action: "Add"
-      })
+      });
     },
     changePage (p) {
-      this.cur = p
+      this.cur = p;
     },
     newDiagram(payments, categories){
       this.renderChart({
@@ -92,17 +92,17 @@ export default {
           ],
           borderWidth: 1
         }]
-      })
+      });
     }
   },
   async mounted() {
-    this.$store.commit('resetDataState')  //временное кривое решение, что бы запросы не дублировались
-    await this.$store.dispatch('fetchCategoryList')
-    await this.$store.dispatch('fetchData')
+    this.$store.commit('resetDataState');
+    await this.$store.dispatch('fetchCategoryList');
+    await this.$store.dispatch('fetchData');
 
-    await this.newDiagram(this.getDateForPie, this.getCategoryList)
+    await this.newDiagram(this.getDateForPie, this.getCategoryList);
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

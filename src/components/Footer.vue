@@ -1,9 +1,6 @@
 <template>
   <footer class="footer">
-    <div>
-      <button class="locale-btn" type="button" @click="setLocale('en')"><flag iso="us"></flag></button>
-      <button class="locale-btn" type="button" @click="setLocale('ru')"><flag iso="ru"></flag></button>
-    </div>
+    <Multylang />
     <div class="copyright">
       <span>&copy; {{ $t('copyright') }} 2021</span>
     </div>
@@ -11,21 +8,11 @@
 </template>
 
 <script>
+import Multylang from "@/components/Multylang";
 export default {
   name: "Footer",
-  methods: {
-    setLocale(locale) {
-      // в целом пойдёт, но лучше будет чтобы футер об этом не знал
-      // 1) через redux паттерн
-      // 2) отдельный компонент внутри футера по смене языка
-      import(`@/langs/${locale}.json`)
-      .then(res => {
-        this.$i18n.setLocaleMessage(locale, res)
-        this.$i18n.locale = locale
-      })
-    }
-  }
-}
+  components: {Multylang},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,11 +47,5 @@ export default {
   margin-top: 15px;
 }
 
-.locale-btn {
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  text-decoration: none;
-  font-size: 2rem;
-}
+
 </style>
