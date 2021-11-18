@@ -13,5 +13,14 @@
   "categoryTransport": "Transport",
   "categoryEducation": "Education",
   "categorySport": "Sport",
-  "copyright": "Saraikin Stanislav"
+  "copyright": "Saraikin Stanislav",
+  "form": {
+    "titleAdd": "Add Payment Form",
+    "titleEdit": "Edit Item",
+    "labelDate": "Date",
+    "labelCategory": "Category",
+    "LabelValue": "Value",
+    "btnSave": "Save",
+    "btnClose": "Close"
+  }
 }
