@@ -1,0 +1,30 @@
+//Variable
+//$base-color: #4db6ac;
+//$darker-base-color: #3dafa4;
+//
+//$primary: #23adad;
+//$greyLight: #23adade1;
+//$greyLight-2: #cbe0dd;
+//$greyDark: #2d4848;
+//$error: #ee1b1b;
+//
+//$diagramColor-1: #fdff4d;
+//$diagramColor-2: #61DB4D;
+//$diagramColor-3: #ff4d5e;
+//$diagramColor-4: #a07252;
+
+:root {
+  --base-color: #4db6ac;
+  --darker-base-color: #2c7c74;
+
+  --primary: #23adad;
+  --greyLight: rgba(45, 224, 224, 0.88);
+  --greyLight-2: #cbe0dd;
+  --greyDark: #2d4848;
+  --error: #ee1b1b;
+
+  --diagramColor-1: #fdff4d;
+  --diagramColor-2: #61DB4D;
+  --diagramColor-3: #ff4d5e;
+  --diagramColor-4: #a07252;
+}

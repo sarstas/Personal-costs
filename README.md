@@ -41,6 +41,11 @@ npm install
 npm run serve
 ```
 
+### Run devServer to get data using api request
+```
+npm run startDB
+```
+
 ### Compiles and minifies for production
 ```
 npm run build

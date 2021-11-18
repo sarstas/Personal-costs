@@ -1,75 +1,51 @@
 <template>
-  <!--TODO ненужная пустая 6-я строка в v-footer-->
-  <v-footer
-      v-bind="localAttrs"
-      :padless="padless"
-
-  >
-    <!--TODO стили в html не надо, лучше вынести в класс с width="100%"-->
-    <v-card
-        flat
-        tile
-        width="100%"
-        class="teal lighten-2 text-center"
-    >
-      <v-card-text>
-        <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4"
-            icon
-        >
-          <!--TODO стили в html такое себе, почему бы не сделать класс с size="24px"?-->
-          <v-icon size="24px">
-            {{ icon }}
-          </v-icon>
-        </v-btn>
-      </v-card-text>
-
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-card-text>
-    </v-card>
-  </v-footer>
+  <footer class="footer">
+    <Multylang />
+    <div class="copyright">
+      <span>&copy; {{ $t('copyright') }} 2021</span>
+    </div>
+  </footer>
 </template>
 
-<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
+import Multylang from "@/components/Multylang";
 export default {
   name: "Footer",
-  data: () => ({
-    icons: [
-      'mdi-home',
-      'mdi-email',
-      'mdi-calendar',
-      'mdi-delete',
-    ],
-    items: [
-      'default',
-      'absolute',
-      'fixed',
-    ],
-    padless: true,
-    variant: 'default',
-  }),
-  computed: {
-    localAttrs () {
-      const attrs = {}
-
-      if (this.variant === 'default') {
-        attrs.absolute = false
-        attrs.fixed = false
-      } else {
-        attrs[this.variant] = true
-      }
-      return attrs
-    },
-  }
-}
+  components: {Multylang},
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.footer {
+  background-color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icons {
+  display: flex;
+  &__item {
+    font-size: 2rem;
+    width: 30px;
+    opacity: .6;
+    transition: opacity .3s;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.copyright {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-top: 15px;
+}
+
 
 </style>

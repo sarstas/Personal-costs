@@ -1,24 +1,22 @@
 <template>
-  <div class="text-center">
-    <v-pagination
-        v-model="curPage"
-        :length="amount"
-        @click="onClick(cur)"
-        prev-icon="mdi-menu-left"
-        next-icon="mdi-menu-right"
-    ></v-pagination>
+  <div class="pagination">
+    <button class="pagination__btn" type="button" @click="onClick(cur-1)" >&lt;</button>
+    <button class="pagination__btn" type="button"
+        v-for="i in amount"
+        :key="i"
+        :class="{  active:  cur === i }"
+        @click="onClick(i)"
+    >
+      {{ i }}
+    </button>
+    <button class="pagination__btn" type="button" @click="onClick(cur+1)" >&gt;</button>
   </div>
 </template>
 
-<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
+// самое время начать писать тесты, начни с пагинации
 export default {
-  name: "Pagination",
-  data () {
-    return {
-      curPage: 1,
-    }
-  },
+  name: "pagination",
   props: {
     n: Number,
     cur: {
@@ -41,11 +39,29 @@ export default {
       }
       this.$emit('paginate', p)
     }
-  }
+  },
 
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+.pagination
+  display: flex
+  justify-content: center
+  //margin-top: 30px
+  font-size: 1.6rem
+  &__btn
+    padding: 10px
+    margin: 10px
+    cursor: pointer
+    border: none
+    background-color: var(--greyLight)
+    transition: .3s
+    border-radius: 4px
+    &:hover
+      background-color: var(--greyLight-2)
 
+.active
+  background-color: var(--base-color)
+  color: #fff
 </style>

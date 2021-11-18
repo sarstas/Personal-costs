@@ -1,0 +1,26 @@
+{
+  "logoText": "My personal costs",
+  "linkDashboard": "Dashboard",
+  "linkAbout": "About",
+  "btnAddPayment": "Add Payment",
+  "tableHeadDate": "Date",
+  "tableHeadCategory": "Category",
+  "tableHeadValue": "Value",
+  "tableHeadAction": "Action",
+  "actionEdit": "Edit",
+  "actionDelete": "Delete",
+  "categoryFood": "Food",
+  "categoryTransport": "Transport",
+  "categoryEducation": "Education",
+  "categorySport": "Sport",
+  "copyright": "Saraikin Stanislav",
+  "form": {
+    "titleAdd": "Add Payment Form",
+    "titleEdit": "Edit Item",
+    "labelDate": "Date",
+    "labelCategory": "Category",
+    "LabelValue": "Value",
+    "btnSave": "Save",
+    "btnClose": "Close"
+  }
+}

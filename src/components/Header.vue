@@ -1,31 +1,50 @@
 <template>
-  <!--TODO стили в html не надо, лучше вынести если возможно color в класс"-->
-  <v-app-bar
-      app
-      color="teal lighten-2"
-      dense
-      dark
-      flat
-  >
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    <!--TODO пустой класс у тайтла-->
-    <v-toolbar-title class="">MyLogo</v-toolbar-title>
-
-    <v-spacer></v-spacer>
-
-    <v-btn to="/dashboard" plain :ripple="true">Dashboard</v-btn>
-    <v-btn to="/about" plain :ripple="true">About</v-btn>
-
-  </v-app-bar>
+  <div class="wrap-header">
+    <header class="header container">
+      <h1 class="header__logo">{{ $t('logoText') }}</h1>
+      <div class="header__links">
+        <router-link class="header__link" to="dashboard">{{ $t('linkDashboard') }}</router-link>
+        <router-link class="header__link" to="about">{{ $t('linkAbout') }}</router-link>
+      </div>
+    </header>
+  </div>
 </template>
 
-<!--TODO аналогично, лучше сделать импорт скрипта и стилей отдельно-->
 <script>
 export default {
   name: "Header"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.wrap-header {
+  background-color: var(--base-color);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  &__links {
+    display: grid;
+    align-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    grid-auto-rows: auto;
+  }
 
+  &__link {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+  }
+}
 </style>

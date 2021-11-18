@@ -1,0 +1,26 @@
+{
+  "logoText": "Мои личные расходы",
+  "linkDashboard": "Таблица расхдов",
+  "linkAbout": "О нас",
+  "btnAddPayment": "Добавить расход",
+  "tableHeadDate": "Дата",
+  "tableHeadCategory": "Категория",
+  "tableHeadValue": "Сумма",
+  "tableHeadAction": "Операции",
+  "actionEdit": "Изменить",
+  "actionDelete": "Удалить",
+  "categoryFood": "Еда",
+  "categoryTransport": "Транспорт",
+  "categoryEducation": "Образование",
+  "categorySport": "Спорт",
+  "copyright": "Сарайкин Станислав",
+  "form": {
+    "titleAdd": "Добавление Новой Записи",
+    "titleEdit": "Изменение Записи",
+    "labelDate": "Дата",
+    "labelCategory": "Категория",
+    "LabelValue": "Количество",
+    "btnSave": "Сохранить",
+    "btnClose": "Закрыть"
+  }
+}
